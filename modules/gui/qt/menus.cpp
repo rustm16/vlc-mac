@@ -787,10 +787,10 @@ QMenu *VLCMenuBar::HelpMenu( QWidget *parent )
     QMenu *menu = new QMenu( parent );
     addDPStaticEntry( menu, qtr( "&Help" ) ,
         ":/menu/help.svg", SLOT( helpDialog() ), "F1" );
-#ifdef UPDATE_CHECK
-    addDPStaticEntry( menu, qtr( "Check for &Updates..." ) , "",
-                      SLOT( updateDialog() ) );
-#endif
+// #ifdef UPDATE_CHECK
+//     addDPStaticEntry( menu, qtr( "Check for &Updates..." ) , "",
+//                       SLOT( updateDialog() ) );
+// #endif
     menu->addSeparator();
     addDPStaticEntry( menu, qtr( I_MENU_ABOUT ), ":/menu/info.svg",
             SLOT( aboutDialog() ), "Shift+F1", QAction::AboutRole );

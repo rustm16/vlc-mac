@@ -1,8 +1,8 @@
-dnl Autoconf settings for vlc
+dnl Autoconf settings for xplayertv
 
-AC_COPYRIGHT([Copyright 1999-2022 VLC authors and VideoLAN])
+AC_COPYRIGHT([Copyright 1999-2022 XPLAYER.TV authors])
 
-AC_INIT(vlc, 3.0.17.3)
+AC_INIT(xplayertv, 3.0.17.3)
 VERSION_MAJOR=3
 VERSION_MINOR=0
 VERSION_REVISION=17
@@ -13,7 +13,7 @@ PKGDIR="vlc"
 AC_SUBST(PKGDIR)
 
 CONFIGURE_LINE="`echo "$0 $ac_configure_args" | sed -e 's/\\\/\\\\\\\/g'`"
-CODENAME="Vetinari"
+CODENAME="XPLAYER.TV"
 COPYRIGHT_YEARS="1996-2022"
 
 AC_CONFIG_SRCDIR(src/libvlc.c)
@@ -4279,7 +4279,7 @@ EXTEND_HELP_STRING([Components:])
 dnl
 dnl  the VLC binary
 dnl
-AC_ARG_ENABLE(vlc,
+AC_ARG_ENABLE(xplayertv,
   [  --enable-vlc            build the VLC media player (default enabled)])
 AM_CONDITIONAL(BUILD_VLC, [test "${enable_vlc}" != "no"])
 
@@ -4422,9 +4422,9 @@ system                : ${SYS}
 architecture          : ${ARCH}
 optimizations         : ${enable_optimizations}"
 if test "${enable_vlc}" != "no"; then
-echo "vlc aliases           :${ALIASES}"
+echo "xplayertv aliases           :${ALIASES}"
 else
-echo "build vlc executable  : no"
+echo "build xplayertv executable  : no"
 fi
 echo "
-To build vlc and its plugins, type \`$MAKE', or \`./compile' if you like nice colors."
+To build xplayertv and its plugins, type \`$MAKE', or \`./compile' if you like nice colors."

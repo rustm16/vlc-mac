@@ -3,9 +3,9 @@ BUILT_SOURCES_distclean += \
 	extras/package/win32/NSIS/vlc.win32.nsi extras/package/win32/NSIS/spad.nsi
 endif
 
-win32_destdir=$(top_builddir)/vlc-$(VERSION)
+win32_destdir=$(top_builddir)/xplayertv-$(VERSION)
 win32_debugdir=$(abs_top_builddir)/symbols-$(VERSION)
-win32_xpi_destdir=$(abs_top_builddir)/vlc-plugin-$(VERSION)
+win32_xpi_destdir=$(abs_top_builddir)/xplayertv-plugin-$(VERSION)
 
 7Z_OPTS=-t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on
 
@@ -17,9 +17,9 @@ build-npapi: package-win-install
 endif
 
 if HAVE_WIN64
-WINVERSION=vlc-$(VERSION)-win64
+WINVERSION=xplayertv-$(VERSION)-win64
 else
-WINVERSION=vlc-$(VERSION)-win32
+WINVERSION=xplayertv-$(VERSION)-win32
 endif
 
 package-win-install:
@@ -156,17 +156,23 @@ package-win32-exe: package-win-strip $(win32_destdir)/NSIS/nsProcess.dll extras/
 
 package-win32-zip: package-win-strip
 	rm -f -- $(WINVERSION).zip
-	zip -r -9 $(WINVERSION).zip vlc-$(VERSION) --exclude \*.nsi \*NSIS\* \*languages\* \*sdk\* \*helpers\* spad\*
+	
+	
+	zip -r -9 $(WINVERSION).zip xplayertv-$(VERSION) --exclude \*.nsi \*NSIS\* \*languages\* \*sdk\* \*helpers\* spad\*
 
 package-win32-debug-zip: package-win-common
 	rm -f -- $(WINVERSION)-debug.zip
-	zip -r -9 $(WINVERSION)-debug.zip vlc-$(VERSION)
+	zip -r -9 $(WINVERSION)-debug.zip xplayertv-$(VERSION)
 
 package-win32-7zip: package-win-strip
-	7z a $(7Z_OPTS) $(WINVERSION).7z vlc-$(VERSION)
+	mv xplayertv-$(VERSION)/vlc.exe xplayertv-$(VERSION)/xplayertv.exe
+	mv xplayertv-$(VERSION)/vlc-cache-gen.exe xplayertv-$(VERSION)/xplayertv-cache-gen.exe
+	7z a $(7Z_OPTS) $(WINVERSION).7z xplayertv-$(VERSION)
 
 package-win32-debug-7zip: package-win-common
-	7z a $(7Z_OPTS) $(WINVERSION)-debug.7z vlc-$(VERSION)
+	mv xplayertv-$(VERSION)/vlc.exe xplayertv-$(VERSION)/xplayertv.exe
+	mv xplayertv-$(VERSION)/vlc-cache-gen.exe xplayertv-$(VERSION)/xplayertv-cache-gen.exe
+	7z a $(7Z_OPTS) $(WINVERSION)-debug.7z xplayertv-$(VERSION)
 
 package-win32-cleanup:
 	rm -Rf $(win32_destdir) $(win32_debugdir) $(win32_xpi_destdir)
@@ -197,8 +203,8 @@ package-win32-release: package-win-strip $(win32_destdir)/NSIS/nsProcess.dll pac
 # WinCE
 #######
 package-wince: package-win-strip
-	rm -f -- vlc-$(VERSION)-wince.zip
-	zip -r -9 vlc-$(VERSION)-wince.zip vlc-$(VERSION)
+	rm -f -- xplayertv-$(VERSION)-wince.zip
+	zip -r -9 xplayertv-$(VERSION)-wince.zip xplayertv-$(VERSION)
 
 .PHONY: package-win-install package-win-common package-win-strip package-win32-webplugin-common package-win32-xpi package-win32-crx package-win32-exe package-win32-zip package-win32-debug-zip package-win32-7zip package-win32-debug-7zip package-win32-cleanup package-win32 package-win32-debug package-wince
 

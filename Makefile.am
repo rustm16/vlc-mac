@@ -99,7 +99,7 @@ CLEANFILES =
 DISTCLEANFILES = $(BUILT_SOURCES_distclean) compile doltcompile doltlibtool
 MAINTAINERCLEANFILES = ChangeLog
 
-# Shortcut for developers to rebuild the core (libvlc + vlc)
+# Shortcut for developers to rebuild the core (libvlc + xplayertv)
 # Don't use it if you don't know what it is about.
 # Don't complain if it doesn't work. -- Courmisch
 libcompat:
@@ -111,8 +111,8 @@ libvlccore: libcompat
 libvlc: libvlccore
 	cd lib && $(MAKE) $(AM_MAKEFLAGS) libvlc.la
 
-core: libvlc vlc$(EXEEXT)
-	cd bin && $(MAKE) $(AM_MAKEFLAGS) vlc$(EXEEXT) vlc-static$(EXEEXT)
+core: libvlc xplayertv$(EXEEXT)
+	cd bin && $(MAKE) $(AM_MAKEFLAGS) xplayertv$(EXEEXT) xplayertv-static$(EXEEXT)
 
 doc:
 	cd doc && $(MAKE) $(AM_MAKEFLAGS) doc
@@ -150,14 +150,14 @@ nvlc: make-alias Makefile
 	$(AM_V_GEN)$(MKALIAS) ncurses
 
 if BUILD_VLC
-noinst_SCRIPTS = vlc$(EXEEXT)
+noinst_SCRIPTS = xplayertv$(EXEEXT)
 endif
 
-vlc$(EXEEXT):
+xplayertv$(EXEEXT):
 if HAVE_DARWIN
-	$(AM_V_GEN)$(LN_S) -f bin/vlc-osx-static vlc
+	$(AM_V_GEN)$(LN_S) -f bin/xplayertv-osx-static xplayertv
 else
-	$(AM_V_GEN)$(LN_S) -f bin/vlc-static$(EXEEXT) vlc$(EXEEXT)
+	$(AM_V_GEN)$(LN_S) -f bin/xplayertv-static$(EXEEXT) xplayertv$(EXEEXT)
 endif
 
 TESTS = test/run_vlc.sh
@@ -172,7 +172,7 @@ install-exec-hook:
 		PATH="$(DESTDIR)$(bindir):$$PATH" \
 		LD_LIBRARY_PATH="$(DESTDIR)$(libdir):$$LD_LIBRARY_PATH" \
 		DYLD_LIBRARY_PATH="$(DESTDIR)$(libdir):$$DYLD_LIBRARY_PATH" \
-		"$(DESTDIR)$(vlclibdir)/vlc-cache-gen$(EXEEXT)" \
+		"$(DESTDIR)$(vlclibdir)/xplayertv-cache-gen$(EXEEXT)" \
 			 "$(DESTDIR)$(vlclibdir)/plugins" ; \
 	else \
 		echo "Cross-compilation: cache generation skipped!" ; \

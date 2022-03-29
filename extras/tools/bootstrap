@@ -199,7 +199,7 @@ done
 
 cat >> Makefile << EOF
 all: $TARGETS
-	@echo "You are ready to build VLC and its contribs"
+	@echo "You are ready to build XPLAYERTV and its contribs"
 
 include \$(TOOLS)/tools.mak
 EOF
