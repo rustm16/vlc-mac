@@ -165,8 +165,6 @@ package-win32-debug-zip: package-win-common
 	zip -r -9 $(WINVERSION)-debug.zip xplayertv-$(VERSION)
 
 package-win32-7zip: package-win-strip
-	mv xplayertv-$(VERSION)/vlc.exe xplayertv-$(VERSION)/xplayertv.exe
-	mv xplayertv-$(VERSION)/vlc-cache-gen.exe xplayertv-$(VERSION)/xplayertv-cache-gen.exe
 	7z a $(7Z_OPTS) $(WINVERSION).7z xplayertv-$(VERSION)
 
 package-win32-debug-7zip: package-win-common
