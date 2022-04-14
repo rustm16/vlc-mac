@@ -35,7 +35,7 @@ jobs:
 #         run: pwd
         
       - name: build vlc
-        run: cd build && pwd && ../extras/package/macosx/build.sh -r -c -a x86_64 -i n
+        run: cd build && pwd && brew install gcc &&  alias gcc='gcc-11' && alias cc='gcc-11' && alias g++='g++-11' && alias c++='c++-11' && whereis gcc && ../extras/package/macosx/build.sh -r -c -a x86_64 -i n
       # Runs a set of commands using the runners shell
 #       - name: build script
 #         run: |
