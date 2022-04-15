@@ -34,10 +34,10 @@ jobs:
 #       - name: pwd
 #         run: pwd
         
-#       - name: build vlc
-#         run: cd build && pwd && brew install gcc && ../extras/package/macosx/build.sh -r -c -a x86_64 -i n
-#       # Runs a set of commands using the runners shell
-# #       - name: build script
-# #         run: |
-# #           echo Add other actions to build,
-# #           echo test, and deploy your project.
+      - name: build vlc
+        run: cd build && pwd && brew install gcc && ../extras/package/macosx/build.sh -r -c -a x86_64 -i n
+      # Runs a set of commands using the runners shell
+#       - name: build script
+#         run: |
+#           echo Add other actions to build,
+#           echo test, and deploy your project.
