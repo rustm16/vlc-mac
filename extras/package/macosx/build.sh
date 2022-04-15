@@ -151,12 +151,12 @@ if [ ! -d "$python3Path" ]; then
 	python3Path=""
 fi
 
-export AR="/usr/local/bin/gcc-ar-11"
+export AR="`xcrun --find ar`"
 export CC="/usr/local/bin/gcc-11"
 export CXX="/usr/local/bin/g++-11"
-export NM="/usr/local/bin/gcc-nm-11"
+export NM="`xcrun --find nm`"
 export OBJC="/usr/local/bin/gcc-11"
-export RANLIB="/usr/local/bin/gcc-ranlib-11"
+export RANLIB="`xcrun --find ranlib`"
 export STRINGS="`xcrun --find strings`"
 export STRIP="`xcrun --find strip`"
 export SDKROOT
