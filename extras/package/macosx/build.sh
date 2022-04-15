@@ -9,7 +9,7 @@ info()
 }
 
 ARCH="x86_64"
-MINIMAL_OSX_VERSION="10.7"
+MINIMAL_OSX_VERSION="10.9"
 OSX_KERNELVERSION=`uname -r | cut -d. -f1`
 BUILD_ARCH=`uname -m | cut -d. -f1`
 SDKROOT=$(xcrun --show-sdk-path)
@@ -152,10 +152,10 @@ if [ ! -d "$python3Path" ]; then
 fi
 
 export AR="`xcrun --find ar`"
-export CC="gcc -std=c11"
-export CXX="g++ -std=c++11"
+export CC="gcc"
+export CXX="g++"
 export NM="`xcrun --find nm`"
-export OBJC="gcc -std=c11"
+export OBJC="gcc"
 export RANLIB="`xcrun --find ranlib`"
 export STRINGS="`xcrun --find strings`"
 export STRIP="`xcrun --find strip`"
@@ -238,9 +238,9 @@ spopd
 #   enabled. (e.g. ffmpeg)
 # - This will fail the build if a partially available symbol is added later on
 #   in contribs and not mentioned in the list of symbols above.
-export CFLAGS="-Werror=partial-availability"
-export CXXFLAGS="-Werror=partial-availability"
-export OBJCFLAGS="-Werror=partial-availability"
+export CFLAGS="-std=c11 -Werror=partial-availability"
+export CXXFLAGS="-std=c++11 -Werror=partial-availability"
+export OBJCFLAGS="-std=c11 -Werror=partial-availability"
 
 export EXTRA_CFLAGS="-isysroot $SDKROOT -mmacosx-version-min=$MINIMAL_OSX_VERSION -DMACOSX_DEPLOYMENT_TARGET=$MINIMAL_OSX_VERSION -arch $ACTUAL_ARCH"
 export EXTRA_LDFLAGS="-Wl,-syslibroot,$SDKROOT -mmacosx-version-min=$MINIMAL_OSX_VERSION -isysroot $SDKROOT -DMACOSX_DEPLOYMENT_TARGET=$MINIMAL_OSX_VERSION -arch $ACTUAL_ARCH"
