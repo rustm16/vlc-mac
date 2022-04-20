@@ -29,13 +29,13 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: make build dir
-        run: mkdir build && brew install neofetch && neofetch && ls -l /usr/local/bin && /usr/local/bin/gcc-11 -v  && /usr/local/bin/g++-11 -v && lz4 --version
+        run: mkdir build && brew install neofetch && neofetch && ls -l /usr/local/bin && lz4 --version
 
       - name: display clang
         run: xcrun --find clang && xcrun --find clang++ && clang --version && clang++ --version
         
-#       - name: build vlc
-#         run: cd build && pwd && chmod +x ../macos.sh &&  ../macos.sh prepare && sudo ../extras/package/macosx/build.sh -r -c -a x86_64 -i n
+      - name: build vlc
+        run: cd build && pwd && chmod +x ../macos.sh &&  ../macos.sh prepare && sudo ../extras/package/macosx/build.sh -r -c -a x86_64 -i n
       
       
       # Runs a set of commands using the runners shell
