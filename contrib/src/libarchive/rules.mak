@@ -30,6 +30,6 @@ endif
 	cd $< && $(HOSTVARS) ./configure $(HOSTCONF) \
 		--disable-bsdcpio --disable-bsdtar --disable-bsdcat \
 		--without-nettle --without-cng \
-		--without-xml2 --without-lzma --without-lz4 --without-iconv --without-expat
+		--without-xml2 --without-lzma --without-iconv --without-expat
 	cd $< && $(MAKE) install
 	touch $@
