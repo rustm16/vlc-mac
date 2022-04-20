@@ -285,9 +285,9 @@ unset EXTRA_LDFLAGS
 unset XCODE_FLAGS
 
 # Enable debug symbols by default
-export CFLAGS="-g -arch $ACTUAL_ARCH"
-export CXXFLAGS="-g -arch $ACTUAL_ARCH"
-export OBJCFLAGS="-g -arch $ACTUAL_ARCH"
+export CFLAGS="-std=c11 -g -arch $ACTUAL_ARCH"
+export CXXFLAGS="-std=c++11 -g -arch $ACTUAL_ARCH"
+export OBJCFLAGS="-std=c11 -g -arch $ACTUAL_ARCH"
 export LDFLAGS="-arch $ACTUAL_ARCH"
 
 #
