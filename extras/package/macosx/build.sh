@@ -152,10 +152,10 @@ if [ ! -d "$python3Path" ]; then
 fi
 
 export AR="`xcrun --find ar`"
-export CC="`xcrun --find clang`"
-export CXX="`xcrun --find clang++`"
+export CC="/usr/local/bin/gcc"
+export CXX="/usr/local/bin/g++"
 export NM="`xcrun --find nm`"
-export OBJC="`xcrun --find clang`"
+export OBJC="/usr/local/bin/gcc"
 export RANLIB="`xcrun --find ranlib`"
 export STRINGS="`xcrun --find strings`"
 export STRIP="`xcrun --find strip`"
