@@ -19,6 +19,13 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: macos-10.15
+    env:
+      VLC_PATH: /usr/local/bin
+      VLC_FORCE_KERNELVERSION: 18
+      VLC_SDK_PATH: /Applications/Xcode_10.3.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk
+      HOST_ARCH: x86_64
+      SHORTARCH: intel64
+      TRIPLET: $HOST_ARCH-apple-darwin$VLC_FORCE_KERNELVERSION
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
