@@ -44,7 +44,6 @@ jobs:
       - name: build vlc
         run: cd build && pwd && sudo ../extras/package/macosx/build.sh -r -c -i n -a x86_64 
       
-      
       # Runs a set of commands using the runners shell
 #       - name: build script
 #         run: |
