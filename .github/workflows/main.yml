@@ -26,6 +26,7 @@ jobs:
       HOST_ARCH: x86_64
       SHORTARCH: intel64
       TRIPLET: $HOST_ARCH-apple-darwin$VLC_FORCE_KERNELVERSION
+      VLC_PREBUILT_CONTRIBS_URL: "https://artifacts.videolan.org/vlc-3.0/macos-x86_64/vlc-contrib-x86_64-apple-darwin18-97612c39e1c89e1d5b15fe090de9170c3b4e7b4f.tar.bz2"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -42,7 +43,7 @@ jobs:
         run: xcrun --find clang && xcrun --find clang++ && clang --version && clang++ --version
         
       - name: build vlc
-        run: cd build && pwd && sudo ../extras/package/macosx/build.sh -r -c -i n -a x86_64 
+        run: cd build && pwd && export VLC_PREBUILT_CONTRIBS_URL="https://artifacts.videolan.org/vlc-3.0/macos-x86_64/vlc-contrib-x86_64-apple-darwin18-97612c39e1c89e1d5b15fe090de9170c3b4e7b4f.tar.bz2" && sudo ../extras/package/macosx/build.sh -i n -a x86_64 
       
       # Runs a set of commands using the runners shell
 #       - name: build script
