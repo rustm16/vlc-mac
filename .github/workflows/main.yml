@@ -37,7 +37,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: make build dir
-        run: mkdir build && brew install neofetch && neofetch && ls -l /usr/local/bin && lz4 --version
+        run: mkdir build && ls -l /usr/local/bin && lz4 --version
 
       - name: display clang
         run: xcrun --find clang && xcrun --find clang++ && clang --version && clang++ --version
