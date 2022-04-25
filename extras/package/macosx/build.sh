@@ -9,7 +9,7 @@ info()
 }
 
 ARCH="x86_64"
-MINIMAL_OSX_VERSION="10.9"
+MINIMAL_OSX_VERSION="10.13"
 OSX_KERNELVERSION=`uname -r | cut -d. -f1`
 BUILD_ARCH=`uname -m | cut -d. -f1`
 SDKROOT=$(xcrun --show-sdk-path)
@@ -238,9 +238,9 @@ spopd
 #   enabled. (e.g. ffmpeg)
 # - This will fail the build if a partially available symbol is added later on
 #   in contribs and not mentioned in the list of symbols above.
-export CFLAGS="-std=gnu89 -Werror=partial-availability"
+export CFLAGS="-std=c11 -Werror=partial-availability"
 export CXXFLAGS="-std=c++14 -Werror=partial-availability"
-export OBJCFLAGS="-std=gnu89 -Werror=partial-availability"
+export OBJCFLAGS="-std=c11 -Werror=partial-availability"
 
 export EXTRA_CFLAGS="-isysroot $SDKROOT -mmacosx-version-min=$MINIMAL_OSX_VERSION -DMACOSX_DEPLOYMENT_TARGET=$MINIMAL_OSX_VERSION -arch $ACTUAL_ARCH"
 export EXTRA_LDFLAGS="-Wl,-syslibroot,$SDKROOT -mmacosx-version-min=$MINIMAL_OSX_VERSION -isysroot $SDKROOT -DMACOSX_DEPLOYMENT_TARGET=$MINIMAL_OSX_VERSION -arch $ACTUAL_ARCH"
@@ -285,9 +285,9 @@ unset EXTRA_LDFLAGS
 unset XCODE_FLAGS
 
 # Enable debug symbols by default
-export CFLAGS="-std=gnu89 -g -arch $ACTUAL_ARCH"
+export CFLAGS="-std=c11 -g -arch $ACTUAL_ARCH"
 export CXXFLAGS="-std=c++14 -g -arch $ACTUAL_ARCH"
-export OBJCFLAGS="-std=gnu89 -g -arch $ACTUAL_ARCH"
+export OBJCFLAGS="-std=c11 -g -arch $ACTUAL_ARCH"
 export LDFLAGS="-arch $ACTUAL_ARCH"
 
 #
