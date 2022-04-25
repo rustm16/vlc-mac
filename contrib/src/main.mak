@@ -470,7 +470,7 @@ distclean: clean
 	$(RM) config.mak
 	unlink Makefile
 
-PREBUILT_URL=http://download.videolan.org/pub/videolan/contrib/$(HOST)/vlc-contrib-$(HOST)-latest.tar.bz2
+PREBUILT_URL="https://artifacts.videolan.org/vlc-3.0/macos-x86_64/vlc-contrib-x86_64-apple-darwin18-97612c39e1c89e1d5b15fe090de9170c3b4e7b4f.tar.bz2"
 
 vlc-contrib-$(HOST)-latest.tar.bz2:
 	$(call download,$(PREBUILT_URL))
